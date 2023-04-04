@@ -21,8 +21,10 @@ function cursorUpgradeClicked() {
   cps += 0.1;
 
   // Cursor Clicker Per Second Output
-  let cpsOutput = `Total Clicks Per Second = ${cps.toFixed(1)}`;
+  let cpsOutput = `Total Cookies Per Second = ${cps.toFixed(1)}`;
   document.getElementById("total-CPS").innerHTML = cpsOutput;
+console.log(cpsOutput);
+
 }
 
 // Grandma Upgrade
@@ -41,7 +43,8 @@ function grandmaUpgradeClicked() {
   cps += 1;
 
   // Grandma Clicks Per Second Output
-  let cpsOutput = `Total Clicks Per Second = ${cps.toFixed(1)}`;
+  let cpsOutput = `Total Cookies Per Second = ${cps.toFixed(1)}`;
   document.getElementById("total-CPS").innerHTML = cpsOutput;
+console.log(cpsOutput);
+
 }
-export { cps };
