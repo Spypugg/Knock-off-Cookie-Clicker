@@ -1,4 +1,5 @@
 // Cursor Upgrade
+
 document
   .getElementById("cursor-upgrade")
   .addEventListener("click", cursorUpgradeClicked);
@@ -43,3 +44,4 @@ function grandmaUpgradeClicked() {
   let cpsOutput = `Total Clicks Per Second = ${cps.toFixed(1)}`;
   document.getElementById("total-CPS").innerHTML = cpsOutput;
 }
+export { cps };
