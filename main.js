@@ -16,6 +16,16 @@ document
   .getElementById("cursor-upgrade")
   .addEventListener("click", cursorUpgradeClicked);
 
+document.getElementById("btn").addEventListener("click", btnClicked);
+
+function btnClicked() {
+  numCookie += 1;
+  console.log("Cookie Click");
+  let output = numCookie + cps2;
+  let moutput = output.toFixed(1);
+  document.getElementById("jar").innerHTML = moutput;
+}
+
 function grandmaUpgradeClicked() {
   setInterval(clock, 1000);
   function clock() {
