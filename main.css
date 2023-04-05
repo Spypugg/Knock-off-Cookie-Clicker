@@ -50,3 +50,13 @@ button:hover {
 #btn {
   background-color: white;
 }
+
+#grandma-upgrade {
+  width: 200px;
+  height: 70px;
+}
+
+#cursor-upgrade {
+  width: 200px;
+  height: 70px;
+}
