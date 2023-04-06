@@ -44,7 +44,8 @@ function grandmaUpgradeClicked() {
 }
 
 function cursorUpgradeClicked() {
-  setInterval(clock, 1000);
+  if (numCookie >= 10) {
+    setInterval(clock, 1000);
   function clock() {
     numCookie += 0.1;
     cps2 += ainput;
@@ -52,4 +53,8 @@ function cursorUpgradeClicked() {
     document.getElementById("jar").innerHTML = output;
     console.log(`Cookies = ${numCookie}`);
   }
+} else {
+  console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
 }
+  }
