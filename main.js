@@ -9,10 +9,10 @@ let ainput = 0;
 let numCookie = 0;
 let cursor = 0;
 let cursorCost = document.getElementById("cursor-cost");
-let cursorCostAmount = 10;
+let cursorCostAmount = Math.round(10);
 let grandma = 0;
 let grandmaCost = document.getElementById("grandma-cost");
-let grandmaCostAmount = 100;
+let grandmaCostAmount = Math.round(100);
 
 document
   .getElementById("grandma-upgrade")
@@ -51,7 +51,8 @@ function grandmaUpgradeClicked() {
     //Buying Grandmas
     numCookie -= grandmaCostAmount;
     grandmaCostAmount *= 1.3;
-    grandmaCost.innerHTML = grandmaCostAmount;
+    let grandmaCostOutput = Math.round(grandmaCostAmount);
+    grandmaCost.innerHTML = grandmaCostOutput;
 
     setInterval(clock, 1000);
     function clock() {
@@ -68,7 +69,7 @@ function grandmaUpgradeClicked() {
 }
 
 function cursorUpgradeClicked() {
-  if (numCookie >= 10) {
+  if (numCookie >= cursorCostAmount) {
     cursor += 1;
 
     let outputcps = `Cursor ${cursor}`;
@@ -84,7 +85,8 @@ function cursorUpgradeClicked() {
     //Buying Cursors
     numCookie -= cursorCostAmount;
     cursorCostAmount *= 1.3;
-    cursorCost.innerHTML = cursorCostAmount;
+    let cursorCostOutput = Math.round(cursorCostAmount);
+    cursorCost.innerHTML = cursorCostOutput;
 
     setInterval(clock, 1000);
     function clock() {
