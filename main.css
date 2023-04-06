@@ -56,9 +56,17 @@ button:hover {
   height: 70px;
 }
 
+#grandma-upgrade:hover {
+  cursor: pointer;
+}
+
 #cursor-upgrade {
   width: 200px;
   height: 70px;
+}
+
+#cursor-upgrade {
+  cursor: pointer;
 }
 
 #btn {
@@ -68,4 +76,8 @@ button:hover {
   height: 200px;
   width: 200px;
   background-color: white;
+}
+
+#btn:hover {
+  cursor: pointer;
 }
