@@ -1,5 +1,5 @@
 // Declare Variables
-let cps2 = 0;
+let cps = 0;
 let ainput = 0;
 
 // Main Functions and Event Listners
@@ -7,6 +7,12 @@ let ainput = 0;
 // loop thing
 
 let numCookie = 0;
+let cursor = 0;
+let cursorCost = document.getElementById("cursor-cost");
+let cursorCostAmount = 10;
+let grandma = 0;
+let grandmaCost = document.getElementById("grandma-cost");
+let grandmaCostAmount = 100;
 
 document
   .getElementById("grandma-upgrade")
@@ -21,14 +27,14 @@ document.getElementById("btn").addEventListener("click", btnClicked);
 function btnClicked() {
   numCookie += 1;
   console.log("Cookie Click");
-  let output = numCookie + cps2;
+  let output = numCookie + cps;
   let moutput = output.toFixed(1);
   document.getElementById("jar").innerHTML = moutput;
   console.log(numCookie);
 }
 
 function grandmaUpgradeClicked() {
-  if (numCookie >= 100) {
+  if (numCookie >= grandmaCostAmount) {
     grandma += 1;
 
     let outputgrandma = `Grandmas ${grandma}`;
@@ -42,10 +48,15 @@ function grandmaUpgradeClicked() {
     document.getElementById("total-CPS").innerHTML = cpsOutput;
     console.log(cpsOutput);
 
+    //Buying Grandmas
+    numCookie -= grandmaCostAmount;
+    grandmaCostAmount *= 1.3;
+    grandmaCost.innerHTML = grandmaCostAmount;
+
     setInterval(clock, 1000);
     function clock() {
       numCookie += 1;
-      cps2 += ainput;
+      cps += ainput;
       let output = numCookie.toFixed(1);
       document.getElementById("jar").innerHTML = output;
       console.log(`Cookies = ${numCookie}`);
@@ -70,10 +81,15 @@ function cursorUpgradeClicked() {
     document.getElementById("total-CPS").innerHTML = cpsOutput;
     console.log(cpsOutput);
 
+    //Buying Cursors
+    numCookie -= cursorCostAmount;
+    cursorCostAmount *= 1.3;
+    cursorCost.innerHTML = cursorCostAmount;
+
     setInterval(clock, 1000);
     function clock() {
       numCookie += 0.1;
-      cps2 += ainput;
+      cps += ainput;
       let output = numCookie.toFixed(1);
       document.getElementById("jar").innerHTML = output;
       console.log(`Cookies = ${numCookie}`);
