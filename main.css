@@ -60,3 +60,12 @@ button:hover {
   width: 200px;
   height: 70px;
 }
+
+#btn {
+  background: url("img/notCrushedCookie.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+}
