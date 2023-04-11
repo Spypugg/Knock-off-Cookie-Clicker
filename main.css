@@ -34,6 +34,10 @@ h1 {
 button {
   background-color: goldenrod;
   border-radius: 5px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .upgrade {
@@ -49,6 +53,10 @@ button {
 
 button:hover {
   background-color: darkgoldenrod;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 #btn {
@@ -95,4 +103,17 @@ button:hover {
   height: 70px;
   text-align: center;
   font-size: 25px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+#name-input:hover {
+  color: #fdec6e;
+  text-shadow: 0px 0px 10px #fdec6e;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
