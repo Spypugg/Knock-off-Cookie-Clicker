@@ -6,7 +6,6 @@ html {
 body {
   background-color: grey;
   width: 600px;
-  height: 800px;
   margin: auto;
   border-radius: 25px;
   text-align: center;
@@ -133,4 +132,8 @@ button:hover {
 ::-webkit-scrollbar-thumb {
   background: gold;
   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(230, 195, 0);
 }
