@@ -85,3 +85,14 @@ button:hover {
 #btn:hover {
   cursor: pointer;
 }
+
+#name-input {
+  background: rgba(225, 225, 225, 0.1);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  font-size: 25px;
+}
