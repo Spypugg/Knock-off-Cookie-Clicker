@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Main Page</title>
+    <title>Cook</title>
     <link rel="stylesheet" href="main.css" />
     <script defer src="main.js"></script>
     <script defer src="effects.js"></script>
   </head>
   <body>
     <h1>Knock Off Cookie Clicker</h1>
-     <input id="name-input" value="Cool Kids Farm"></input>
+    <input id="name-input" value="Cool Kids Farm"></input>
     <p>Cookies In The Jar = <span id="jar">0.0</span></p>
     <button id="btn"></button>
     <br />
     <p id="total-CPS">Total Cookies Per Second = 0.0</p>
-    <h1>Upgrades</h1>
+    <h1>Cookie Makers</h1>
     <p>
-      <button class="upgrade" id="cursor-upgrade">
-        <span id="Cursor-Upgrade">Cursor 0</span>
+      <button class="upgrade" id="cursor-buy">
+        <span id="Cursor-Buy">Cursor 0</span>
         <p>Cost = <span id="cursor-cost">10</span></p>
       </button>
     </p>
     <p>
-      <button class="upgrade" id="grandma-upgrade">
-        <span id="Grandma-Upgrade">Grandmas 0</span>
+      <button class="upgrade" id="grandma-buy">
+        <span id="Grandma-Buy">Grandmas 0</span>
         <p>Cost = <span id="grandma-cost">100</span></p>
       </button>
     </p>
     <p>
-      <button class="upgrade" id="farm-upgrade">
-        <span id="Farm-Upgrade">Farms 0</span>
+      <button class="upgrade" id="farm-buy">
+        <span id="Farm-Buy">Farms 0</span>
         <p>Cost = <span id="farm-cost">1200</span></p>
+      </button>
+    </p>
+    <hr />
+    <h1>Upgrades</h1>
+    <p>
+      <button class="upgrade" id="pointer-upgrade">
+        <span id="Pointer-Upgrade">Pointer upgrades 0</span>
+        <p>Cost = <span id="pointerUPG-cost">100</span></p>
       </button>
     </p>
   </body>
 </html>
+<input id="cookie-click" type="hidden" value="${cookieClick}">
