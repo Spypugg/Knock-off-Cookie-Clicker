@@ -1,20 +1,26 @@
 // Declare Variables
-let cps = 0;
-let ainput = 0;
 let numCookie = 0;
 let cookieClick = 1;
 let cursor = 0;
+let cursorCPS = 0;
 let cursorCost = document.getElementById("cursor-cost");
 let cursorCostAmount = Math.round(10);
 let grandma = 0;
+let grandmaCPS = 0;
 let grandmaCost = document.getElementById("grandma-cost");
 let grandmaCostAmount = Math.round(100);
 let farm = 0;
+let farmCPS = 0;
 let farmCost = document.getElementById("farm-cost");
 let farmCostAmount = Math.round(1200);
 let pointerUPG = 0;
-let pointerUPGCost = document.getElementById("cursorUPG-cost");
+let pointerUPGCost = document.getElementById("pointerUPG-cost");
 let pointerUPGCostAmount = Math.round(100);
+let cursorUPG = 0;
+let cursorUPGCost = document.getElementById("cursorUPG-cost");
+let cursorUPGCostAmount = Math.round(100);
+let cps = 0 + cursorCPS;
+let ainput = 0;
 
 // Main Functions and Event Listners
 
@@ -36,6 +42,10 @@ document
   .getElementById("pointer-upgrade")
   .addEventListener("click", pointerUPGClicked);
 
+document
+  .getElementById("cursor-upgrade")
+  .addEventListener("click", cursorUPGClicked);
+
 function btnClicked() {
   numCookie += cookieClick;
   console.log("Cookie Click");
@@ -53,10 +63,10 @@ function cursorBuyClicked() {
     let outputcps = `Cursor ${cursor}`;
 
     document.getElementById("Cursor-Buy").innerHTML = outputcps;
-    cps += 0.1;
+    cursorCPS += 0.1;
 
     // Cursor Clicker Per Second Output
-    let cpsOutput = `Total Cookies Per Second = ${cps.toFixed(1)}`;
+    let cpsOutput = `${cps.toFixed(1)}`;
     document.getElementById("total-CPS").innerHTML = cpsOutput;
     console.log(cpsOutput);
 
@@ -89,7 +99,8 @@ function grandmaBuyClicked() {
 
     // Grandma Update Clicks Per Second
     document.getElementById("Grandma-Buy").innerHTML = outputgrandma;
-    cps += 1;
+    grandmaCPS += 1;
+    cps += grandmaCPS;
 
     // Grandma Clicks Per Second Output
     let cpsOutput = `Total Cookies Per Second = ${cps.toFixed(1)}`;
@@ -104,7 +115,7 @@ function grandmaBuyClicked() {
 
     setInterval(clock, 1000);
     function clock() {
-      numCookie += cookieClick;
+      numCookie += 1;
       cps += ainput;
       let output = numCookie.toFixed(1);
       document.getElementById("jar").innerHTML = output;
@@ -125,7 +136,8 @@ function farmBuyClicked() {
 
     // Farm Update CPS
     document.getElementById("Farm-Buy").innerHTML = outputfarm;
-    cps += 8;
+    farmCPS += 8;
+    cps += farmCPS;
 
     //Farm CPS Output
 
@@ -158,12 +170,12 @@ function farmBuyClicked() {
 //Pointer upgrade
 function pointerUPGClicked() {
   if (numCookie >= pointerUPGCostAmount) {
-    pointerUPG += 1;
+    cursorUPG += 1;
 
-    let outputcursorUPG = `Pointer upgrades ${pointerUPG}`;
+    let outputpointerUPG = `Pointer upgrades ${pointerUPG.toFixed(1)}`;
 
     //Pointer Upgrade Update
-    document.getElementById("Pointer-Upgrade").innerHTML = outputcursorUPG;
+    document.getElementById("Pointer-Upgrade").innerHTML = outputpointerUPG;
     cookieClick *= 2;
 
     //Buying Pointer upgrade
@@ -171,5 +183,30 @@ function pointerUPGClicked() {
     pointerUPGCostAmount *= 5;
     let pointerUPGCostOutput = Math.round(pointerUPGCostAmount);
     pointerUPGCost.innerHTML = pointerUPGCostOutput;
+  } else {
+    console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
+  }
+}
+
+//Cursor upgrade
+function cursorUPGClicked() {
+  if (numCookie >= cursorUPGCostAmount) {
+    cursorUPG += 1;
+
+    let outputcursorUPG = `Cursor upgrades ${cursorUPG.toFixed(1)}`;
+
+    //Cursor Upgrade Update
+    document.getElementById("Cursor-Upgrade").innerHTML = outputcursorUPG;
+    cursorCPS *= 2;
+
+    //Buying Cursor upgrade
+    numCookie -= cursorUPGCostAmount;
+    cursorUPGCostAmount *= 5;
+    let cursorUPGCostOutput = Math.round(cursorUPGCostAmount);
+    cursorUPGCost.innerHTML = cursorUPGCostOutput;
+  } else {
+    console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
   }
 }
