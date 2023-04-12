@@ -63,12 +63,39 @@ button:hover {
   background-color: white;
 }
 
-#grandma-upgrade {
+#grandma-buy {
   width: 200px;
   height: 70px;
 }
 
-#grandma-upgrade:hover {
+#grandma-buy:hover {
+  cursor: pointer;
+}
+
+#cursor-buy {
+  width: 200px;
+  height: 70px;
+}
+
+#cursor-buy {
+  cursor: pointer;
+}
+
+#farm-buy {
+  width: 200px;
+  height: 70px;
+}
+
+#farm-buy:hover {
+  cursor: pointer;
+}
+
+#pointer-upgrade {
+  width: 200px;
+  height: 70px;
+}
+
+#pointer-upgrade:hover {
   cursor: pointer;
 }
 
@@ -77,7 +104,7 @@ button:hover {
   height: 70px;
 }
 
-#cursor-upgrade {
+#cursor-upgrade:hover {
   cursor: pointer;
 }
 
