@@ -5,7 +5,7 @@ html {
 
 body {
   background-color: grey;
-  width: 800px;
+  width: 600px;
   margin: auto;
   border-radius: 25px;
   text-align: center;
@@ -28,61 +28,56 @@ h1 {
   border-radius: 20px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  cursor: default;
 }
 
 button {
   background-color: goldenrod;
   border-radius: 5px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .upgrade {
-  width: 120px;
-  height: 50px;
+  width: 200px;
+  height: 70px;
   font-size: 20px;
   font-weight: bold;
 }
 
+.upgrade:hover {
+  cursor: pointer;
+}
+
 button:hover {
   background-color: darkgoldenrod;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 #btn {
   background-color: white;
 }
 
-#grandma-buy {
+#grandma-upgrade {
   width: 200px;
   height: 70px;
 }
 
-#grandma-buy:hover {
+#grandma-upgrade:hover {
   cursor: pointer;
 }
 
-#cursor-buy {
+#cursor-upgrade {
   width: 200px;
   height: 70px;
 }
 
-#cursor-buy {
-  cursor: pointer;
-}
-
-#farm-buy {
-  width: 200px;
-  height: 70px;
-}
-
-#farm-buy:hover {
-  cursor: pointer;
-}
-
-#pointer-upgrade {
-  width: 200px;
-  height: 70px;
-}
-
-#pointer-upgrade:hover {
+#cursor-upgrade {
   cursor: pointer;
 }
 
@@ -140,3 +135,26 @@ button:hover {
   border-radius: 10px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(230, 195, 0);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background-color: darkgoldenrod;
+  border-radius: 20px;
+  width: 50px;
+}
+
+a:hover {
+  font-weight: 300;
+}
+
+a:visited {
+  color: black;
+}
+
+p {
+  cursor: default;
+}
