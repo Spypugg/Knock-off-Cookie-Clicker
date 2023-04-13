@@ -11,6 +11,7 @@ body {
   border-radius: 25px;
   text-align: center;
   padding: 25px;
+  overflow: hidden;
 }
 
 canvas {
