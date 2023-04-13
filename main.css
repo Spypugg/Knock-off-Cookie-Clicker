@@ -1,5 +1,6 @@
 html {
-  background-color: goldenrod;
+  background: url("img/confetti-girl-scout.gif");
+  background-size: cover;
   padding: 40px;
 }
 
