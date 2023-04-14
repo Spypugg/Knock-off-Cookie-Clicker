@@ -147,6 +147,8 @@ button:hover {
   transition: all 0.2s ease-in;
 }
 
+/* Custom Scrollbar Just in case we want it */
+
 /* Width */
 ::-webkit-scrollbar {
   width: 20px;
@@ -176,6 +178,8 @@ a {
   width: 50px;
 }
 
+/* something that doesn't work */
+
 a:hover {
   font-weight: 300;
 }
@@ -186,4 +190,19 @@ a:visited {
 
 p {
   cursor: default;
+}
+
+.options {
+  float: left;
+  font-size: 35px;
+}
+
+select {
+  background-color: darkgoldenrod;
+  border-radius: 20px;
+  width: 200px;
+  height: 50px;
+  font-size: 35px;
+  text-align: center;
+  border: 1px solid black;
 }
