@@ -1,5 +1,5 @@
 html {
-  background: url("img/confetti-girl-scout.gif");
+  background: url("img/confetti-girl-scout.gif") fixed;
   background-size: cover;
   padding: 40px;
 }
