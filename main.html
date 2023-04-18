@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cookie Clicker</title>
+    <title>Cook</title>
     <link rel="stylesheet" href="main.css" />
-    <link rel="icon" type="image/jpg" href="img/notCrushedCookie.jpg" />
     <script defer src="main.js"></script>
     <script defer src="effects.js"></script>
   </head>
   <body>
     <p><a id="Home"></a>
-      <a href="#Upgrades">Upgrade</a>,   <a href="#CookieMakers">Cookie Makers</a>, <a href="#options">Options</a></p>
+      <a href="#Upgrades">Upgrade</a>,   <a href="#CookieMakers">Cookie Makers</a></p>
     <h1>Knock Off Cookie Clicker</h1>
     <input id="name-input" value="Cool Kids Farm"></input>
     <p>Cookies In The Jar = <span id="jar">0.0</span></p>
@@ -77,25 +76,24 @@
     <br />
     <br />
     <p><a id="CookieMakers"></a>
-      <a href="#Home">Home</a>,   <a href="#Upgrades">Upgrades</a>, <a href="#options">Options</a></p>
+      <a href="#Home">Home</a>,   <a href="#Upgrades">Upgrades</a></p>
     <h1>Cookie Makers</h1>
-    <hr />
     <p>Cookies In The Jar = <span id="jar">0.0</span></p>
     <p>
       <button class="upgrade" id="cursor-buy">
-        <span id="Cursor-Buy">Cursor 0</span>
+        <span id="cursor-amount">Cursors 0</span>
         <p>Cost = <span id="cursor-cost">10</span></p>
       </button>
     </p>
     <p>
       <button class="upgrade" id="grandma-buy">
-        <span id="Grandma-Buy">Grandmas 0</span>
+        <span id="grandma-amount">Grandmas 0</span>
         <p>Cost = <span id="grandma-cost">100</span></p>
       </button>
     </p>
     <p>
       <button class="upgrade" id="farm-buy">
-        <span id="Farm-Buy">Farms 0</span>
+        <span id="farm-amount">Farms 0</span>
         <p>Cost = <span id="farm-cost">1200</span></p>
       </button>
     </p>
@@ -160,19 +158,17 @@
     <br />
     <br />
     <p><a id="Upgrades"></a>
-      <a href="#Home">Home</a>,   <a href="#CookieMakers">Cookie Makers</a>, <a href="#options">Options</a></p>
+      <a href="#Home">Home</a>,   <a href="#CookieMakers">Cookie Makers</a></p>
     <h1>Upgrades</h1>
-    <hr />
     <p>
       <button class="upgrade" id="pointer-upgrade">
-        <span id="Pointer-Upgrade">Pointer upgrades 0</span>
+        <span id="pointerUPG-amount">Pointer upgrades 0</span>
         <p>Cost = <span id="pointerUPG-cost">100</span></p>
       </button>
     </p>
-   <p><button class="upgrade" id="cursor-upgrade"><span id="Cursor-Upgrade">Cursor upgrades 0</span><p>Cost = <span id="cursorUPG-cost">100</span></p></button></p>
+   <p><button class="upgrade" id="cursor-upgrade"><span id="cursorUPG-amount">Cursor upgrades 0</span><p>Cost = <span id="cursorUPG-cost">100</span></p></button></p>
   </body>
 </html>
-<input id="cookie-click" type="hidden" value="${cookieClick}">
 <br />
     <br />
     <br />
