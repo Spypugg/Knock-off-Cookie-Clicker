@@ -2,89 +2,90 @@
 let numCookie = 0;
 let cookieClick = 1;
 let cursor = 0;
-let cursorCPS = 0.1;
-let cursorCost = document.getElementById("cursor-cost");
-let cursorCostAmount = Math.round(10);
+let cursorAmt = document.getElementById("cursor-amount");
+let cursorCPS = cursor * 0.1;
+let cursorCost = 10;
+let cursorCostAmount = document.getElementById("cursor-cost");
 let grandma = 0;
-let grandmaCPS = 1;
-let grandmaCost = document.getElementById("grandma-cost");
-let grandmaCostAmount = Math.round(100);
+let grandmaAmt = document.getElementById("grandma-amount");
+let grandmaCPS = grandma * 1;
+let grandmaCost = 100;
+let grandmaCostAmount = document.getElementById("grandma-cost");
 let farm = 0;
-let farmCPS = 8;
-let farmCost = document.getElementById("farm-cost");
-let farmCostAmount = Math.round(1200);
+let farmAmt = document.getElementById("farm-amount");
+let farmCPS = farm * 8;
+let farmCost = 1200;
+let farmCostAmount = document.getElementById("farm-cost");
 let pointerUPG = 0;
-let pointerUPGCost = document.getElementById("pointerUPG-cost");
-let pointerUPGCostAmount = Math.round(100);
+let pointerUPGAmt = document.getElementById("pointerUPG-amount");
+let pointerUPGCost = 100;
+let pointerUPGCostAmount = document.getElementById("pointerUPG-cost");
+let pointerMult = 1;
 let cursorUPG = 0;
-let cursorUPGCost = document.getElementById("cursorUPG-cost");
-let cursorUPGCostAmount = Math.round(100);
+let cursorUPGAmt = document.getElementById("cursorUPG-amount");
+let cursorUPGCost = 100;
+let cursorUPGCostAmount = document.getElementById("cursorUPG-cost");
+let cursorMult = 1;
+let grandmaMult = 1;
+let farmMult = 1;
 let cps = 0;
-let ainput = 0;
-let cpsOutput;
+let jar = document.getElementById("jar");
 
 // Main Functions and Event Listners
 
 // loop thing
 
 document.getElementById("btn").addEventListener("click", btnClicked);
-
 document
   .getElementById("cursor-buy")
   .addEventListener("click", cursorBuyClicked);
-
 document
   .getElementById("grandma-buy")
   .addEventListener("click", grandmaBuyClicked);
-
 document.getElementById("farm-buy").addEventListener("click", farmBuyClicked);
-
 document
   .getElementById("pointer-upgrade")
   .addEventListener("click", pointerUPGClicked);
-
 document
   .getElementById("cursor-upgrade")
   .addEventListener("click", cursorUPGClicked);
 
+//Updating and timing
+
+function update() {
+  jar.innerHTML = numCookie.toFixed(1);
+  document.title = numCookie.toFixed(1) + " Cookies";
+  cps = cursorCPS * cursorMult + grandmaCPS * grandmaMult + farmCPS * farmMult;
+  document.getElementById("total-CPS").innerHTML =
+    "Total Cookies Per Second = " + cps.toFixed(1);
+}
+
+function timer() {
+  numCookie = numCookie + cursorCPS * cursorMult;
+  numCookie = numCookie + grandmaCPS * grandmaMult;
+  numCookie = numCookie + farmCPS * farmMult;
+  update();
+}
+
+setInterval(timer, 1000);
+
 function btnClicked() {
-  numCookie += cookieClick;
+  numCookie += cookieClick * pointerMult;
   console.log("Cookie Click");
-  let output = numCookie + cps;
-  let moutput = output.toFixed(1);
-  document.getElementById("jar").innerHTML = moutput;
-  console.log(numCookie);
+  update();
 }
 
 //Cursor Buying
 function cursorBuyClicked() {
-  if (numCookie >= cursorCostAmount) {
+  if (numCookie >= cursorCost) {
     cursor += 1;
-
-    let outputcps = `Cursor ${cursor}`;
-
-    document.getElementById("Cursor-Buy").innerHTML = outputcps;
-    cps += cursorCPS;
-
-    // Cursor Clicker Per Second Output
-    cpsOutput = `${cps.toFixed(1)}`;
-    document.getElementById("total-CPS").innerHTML = cpsOutput;
-    console.log(cpsOutput);
-
-    //Buying Cursors
-    numCookie -= cursorCostAmount;
-    cursorCostAmount *= 1.3;
-    let cursorCostOutput = Math.round(cursorCostAmount);
-    cursorCost.innerHTML = cursorCostOutput;
-
-    setInterval(clock, 1000);
-    function clock() {
-      numCookie += cursorCPS;
-      cps += ainput;
-      let output = numCookie.toFixed(1);
-      document.getElementById("jar").innerHTML = output;
-      console.log(`Cookies = ${numCookie}`);
-    }
+    cursorAmt.innerHTML = "Cursors " + cursor;
+    numCookie -= cursorCost;
+    cursorCost *= 1.3;
+    cursorCost = Math.round(cursorCost);
+    cursorCostAmount.innerHTML = cursorCost;
+    cursorCPS = cursor * 0.1;
+    update();
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
@@ -93,34 +94,15 @@ function cursorBuyClicked() {
 
 //Grandma Buying
 function grandmaBuyClicked() {
-  if (numCookie >= grandmaCostAmount) {
+  if (numCookie >= grandmaCost) {
     grandma += 1;
-
-    let outputgrandma = `Grandmas ${grandma}`;
-
-    // Grandma Update Clicks Per Second
-    document.getElementById("Grandma-Buy").innerHTML = outputgrandma;
-    cps += grandmaCPS;
-
-    // Grandma Clicks Per Second Output
-    let cpsOutput = `Total Cookies Per Second = ${cps.toFixed(1)}`;
-    document.getElementById("total-CPS").innerHTML = cpsOutput;
-    console.log(cpsOutput);
-
-    //Buying Grandmas
-    numCookie -= grandmaCostAmount;
-    grandmaCostAmount *= 1.3;
-    let grandmaCostOutput = Math.round(grandmaCostAmount);
-    grandmaCost.innerHTML = grandmaCostOutput;
-
-    setInterval(clock, 1000);
-    function clock() {
-      numCookie += 1;
-      cps += ainput;
-      let output = numCookie.toFixed(1);
-      document.getElementById("jar").innerHTML = output;
-      console.log(`Cookies = ${numCookie}`);
-    }
+    grandmaAmt.innerHTML = "Grandmas " + grandma;
+    numCookie -= grandmaCost;
+    grandmaCost *= 1.3;
+    grandmaCost = math.round(grandmaCost);
+    grandmaCostAmount.innerHTML = grandmaCost;
+    grandmaCPS = grandma * 1;
+    update();
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
@@ -129,35 +111,15 @@ function grandmaBuyClicked() {
 
 //Farm Buying
 function farmBuyClicked() {
-  if (numCookie >= farmCostAmount) {
+  if (numCookie >= farmCost) {
     farm += 1;
-
-    let outputfarm = `Farms ${farm}`;
-
-    // Farm Update CPS
-    document.getElementById("Farm-Buy").innerHTML = outputfarm;
-    cps += farmCPS;
-
-    //Farm CPS Output
-
-    let cpsOutput = `Total Cookies Per Second = ${cps.toFixed(1)}`;
-    document.getElementById("total-CPS").innerHTML = cpsOutput;
-    console.log(cpsOutput);
-
-    //Buying Farms
-    numCookie -= farmCostAmount;
-    farmCostAmount *= 1.3;
-    let farmCostOutput = Math.round(farmCostAmount);
-    farmCost.innerHTML = farmCostOutput;
-
-    setInterval(clock, 1000);
-    function clock() {
-      numCookie += 8;
-      cps += ainput;
-      let output = numCookie.toFixed(1);
-      document.getElementById("jar").innerHTML = output;
-      console.log(`Cookies = ${numCookie}`);
-    }
+    farmAmt.innerHTML = "Farms " + farm;
+    numCookie -= farmCost;
+    farmCost *= 1.3;
+    farmCost = Math.round(farmCost);
+    farmCostAmount.innerHTML = farmCost;
+    farmCPS = farm * 8;
+    update();
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
@@ -168,20 +130,14 @@ function farmBuyClicked() {
 
 //Pointer upgrade
 function pointerUPGClicked() {
-  if (numCookie >= pointerUPGCostAmount) {
+  if (numCookie >= pointerUPGCost) {
     pointerUPG += 1;
-
-    let outputpointerUPG = `Pointer upgrades ${pointerUPG.toFixed(1)}`;
-
-    //Pointer Upgrade Update
-    document.getElementById("Pointer-Upgrade").innerHTML = outputpointerUPG;
-    cookieClick *= 2;
-
-    //Buying Pointer upgrade
-    numCookie -= pointerUPGCostAmount;
-    pointerUPGCostAmount *= 5;
-    let pointerUPGCostOutput = Math.round(pointerUPGCostAmount);
-    pointerUPGCost.innerHTML = pointerUPGCostOutput;
+    pointerUPGAmt.innerHTML = "Pointer upgrades " + pointerUPG;
+    numCookie -= pointerUPGCost;
+    pointerUPGCost *= 2;
+    pointerUPGCost = Math.round(pointerUPGCost);
+    pointerUPGCostAmount.innerHTML = pointerUPGCost;
+    pointerMult *= 2;
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
@@ -190,23 +146,14 @@ function pointerUPGClicked() {
 
 //Cursor upgrade
 function cursorUPGClicked() {
-  if (numCookie >= cursorUPGCostAmount) {
+  if (numCookie >= cursorUPGCost) {
     cursorUPG += 1;
-
-    let outputcursorUPG = `Cursor upgrades ${cursorUPG.toFixed(1)}`;
-
-    //Cursor Upgrade Update
-    document.getElementById("Cursor-Upgrade").innerHTML = outputcursorUPG;
-    cursorCPS *= 2;
-    console.log(`It Worked`);
-
-    //Buying Cursor upgrade
-    numCookie -= cursorUPGCostAmount;
-    cursorUPGCostAmount *= 5;
-    let cursorUPGCostOutput = Math.round(cursorUPGCostAmount);
-    cursorUPGCost.innerHTML = cursorUPGCostOutput;
-    document.getElementById("total-CPS").innerHTML = cpsOutput;
-    console.log(cursorCPS);
+    cursorUPGAmt.innerHTML = "Cursor upgrades " + cursorUPG;
+    numCookie -= cursorUPGCost;
+    cursorUPGCost *= 5;
+    cursorUPGCost = Math.round(cursorUPGCost);
+    cursorUPGCostAmount.innerHTML = cursorUPGCost;
+    cursorMult *= 2;
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
