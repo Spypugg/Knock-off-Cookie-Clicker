@@ -1,3 +1,8 @@
+// Declare Variables
+let myAudio = document.querySelector("#audio");
+let VFXaudio = document.querySelector("#crunch-audio");
+let dingAudio = document.querySelector("#dingAudio");
+
 // Event Listners
 document.getElementById("btn").addEventListener("mousedown", cookieClickeddown);
 document.getElementById("btn").addEventListener("mouseup", cookieClickedup);
@@ -15,11 +20,6 @@ document
   .addEventListener("click", grandmaBuyDing);
 document.getElementById("Farm-buy").addEventListener("click", farmBuyDing);
 // Options Value Input
-
-// Declare Variables
-var myAudio = document.querySelector("#audio");
-var VFXaudio = document.querySelector("#crunch-audio");
-var dingAudio = document.querySelector("#dingAudio");
 
 function applyClicked() {
   let BM = document.getElementById("backgroundMusic").value;
