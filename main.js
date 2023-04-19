@@ -26,10 +26,16 @@ let cursorUPGAmt = document.getElementById("cursorUPG-amount");
 let cursorUPGCost = 100;
 let cursorUPGCostAmount = document.getElementById("cursorUPG-cost");
 let cursorMult = 1;
+let grandmaUPG = 0;
+let grandmaUPGAmt = document.getElementById("grandmaUPG-amount");
+let grandmaUPGCost = 500;
+let grandmaUPGCostAmount = document.getElementById("grandmaUPG-cost");
 let grandmaMult = 1;
 let farmMult = 1;
 let cps = 0;
 let jar = document.getElementById("jar");
+let jar2 = document.getElementById("jar2");
+let jar3 = document.getElementById("jar3");
 
 // Main Functions and Event Listners
 
@@ -50,10 +56,16 @@ document
   .getElementById("cursor-upgrade")
   .addEventListener("click", cursorUPGClicked);
 
+document
+  .getElementById("grandma-upgrade")
+  .addEventListener("click", grandmaUPGClicked);
+
 //Updating and timing
 
 function update() {
   jar.innerHTML = numCookie.toFixed(1);
+  jar2.innerHTML = numCookie.toFixed(1);
+  jar3.innerHTML = numCookie.toFixed(1);
   document.title = numCookie.toFixed(1) + " Cookies";
   cps = cursorCPS * cursorMult + grandmaCPS * grandmaMult + farmCPS * farmMult;
   document.getElementById("total-CPS").innerHTML =
@@ -99,7 +111,7 @@ function grandmaBuyClicked() {
     grandmaAmt.innerHTML = "Grandmas " + grandma;
     numCookie -= grandmaCost;
     grandmaCost *= 1.3;
-    grandmaCost = math.round(grandmaCost);
+    grandmaCost = Math.round(grandmaCost);
     grandmaCostAmount.innerHTML = grandmaCost;
     grandmaCPS = grandma * 1;
     update();
@@ -154,6 +166,22 @@ function cursorUPGClicked() {
     cursorUPGCost = Math.round(cursorUPGCost);
     cursorUPGCostAmount.innerHTML = cursorUPGCost;
     cursorMult *= 2;
+  } else {
+    console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
+  }
+}
+
+//Grandma upgrade
+function grandmaUPGClicked() {
+  if (numCookie >= grandmaUPGCost) {
+    grandmaUPG += 1;
+    grandmaUPGAmt.innerHTML = "Grandma upgrades " + grandmaUPG;
+    numCookie -= grandmaUPGCost;
+    grandmaUPGCost *= 5;
+    grandmaUPGCost = Math.round(grandmaUPGCost);
+    grandmaUPGCostAmount.innerHTML = grandmaUPGCost;
+    grandmaMult *= 2;
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
