@@ -110,7 +110,7 @@ function grandmaBuyDing() {
 }
 // Farm Bought
 function farmBuyDing() {
-  if ((VFXtf = true)) {
+  if (VFXtf) {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
