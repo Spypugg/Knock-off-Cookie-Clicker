@@ -62,7 +62,7 @@ function cookieClickedup() {
 
 // play crunch when clicked
 function VFXcookie() {
-  if ((VFXtf = true)) {
+  if (VFXtf) {
     VFXaudio.play();
     console.log(`Crunch Played`);
   } else if ((VFXtf = false)) {
@@ -72,7 +72,7 @@ function VFXcookie() {
 // play dings when upgrade are clicked
 // Pointer Upgrade
 function pointerUpgDing() {
-  if ((VFXtf = true)) {
+  if (VFXtf) {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
@@ -81,7 +81,7 @@ function pointerUpgDing() {
 }
 // Cursor Upgrade
 function cursorUpgDing() {
-  if ((VFXtf = true)) {
+  if (VFXtf) {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
@@ -92,7 +92,7 @@ function cursorUpgDing() {
 // play dings when cookie makers are purchased
 // Cursor Bought
 function cursorBuyDing() {
-  if ((VFXtf = true)) {
+  if (VFXtf) {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
@@ -101,7 +101,7 @@ function cursorBuyDing() {
 }
 // Grandma Bought
 function grandmaBuyDing() {
-  if ((VFXtf = true)) {
+  if (VFXtf) {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
