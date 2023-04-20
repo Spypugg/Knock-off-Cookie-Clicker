@@ -2,6 +2,7 @@
 let myAudio = document.querySelector("#audio");
 let VFXaudio = document.querySelector("#crunch-audio");
 let dingAudio = document.querySelector("#dingAudio");
+var VFXtf = false;
 
 // Event Listners
 document.getElementById("btn").addEventListener("mousedown", cookieClickeddown);
@@ -14,24 +15,23 @@ document
 document
   .getElementById("cursor-upgrade")
   .addEventListener("click", cursorUpgDing);
-document.getElementById("Cursor-buy").addEventListener("click", cursorBuyDing);
+document.getElementById("cursor-buy").addEventListener("click", cursorBuyDing);
 document
-  .getElementById("Grandma-buy")
+  .getElementById("grandma-buy")
   .addEventListener("click", grandmaBuyDing);
-document.getElementById("Farm-buy").addEventListener("click", farmBuyDing);
+document.getElementById("farm-buy").addEventListener("click", farmBuyDing);
 // Options Value Input
 
 function applyClicked() {
   let BM = document.getElementById("backgroundMusic").value;
   let VFX = document.getElementById("VFX").value;
-  var VFXtf = false;
   // Background Music
   if (BM === "yesBM") {
     myAudio.play();
-    console.log(`yes to background music`);
+    console.log(`Yes to background music`);
   } else if (BM === "noBM") {
     myAudio.pause();
-    console.log(`no to backgroundmusic`);
+    console.log(`No to backgroundmusic`);
   }
 
   // VFX if statements
@@ -40,7 +40,7 @@ function applyClicked() {
     console.log(`Yes to VFX`);
   } else if (VFX === "noVFX") {
     VFXtf = false;
-    console.log(`no to VFX`);
+    console.log(`No to VFX`);
   }
 }
 
@@ -76,6 +76,7 @@ function pointerUpgDing() {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
+    console.log(`ding not played`);
   }
 }
 // Cursor Upgrade
@@ -84,6 +85,7 @@ function cursorUpgDing() {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
+    console.log(`ding not played`);
   }
 }
 
@@ -94,6 +96,7 @@ function cursorBuyDing() {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
+    console.log(`ding not played`);
   }
 }
 // Grandma Bought
@@ -102,6 +105,7 @@ function grandmaBuyDing() {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
+    console.log(`ding not played`);
   }
 }
 // Farm Bought
@@ -110,5 +114,6 @@ function farmBuyDing() {
     dingAudio.play();
     console.log(`Ding Played`);
   } else if ((VFXtf = false)) {
+    console.log(`ding not played`);
   }
 }
