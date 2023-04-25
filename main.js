@@ -16,6 +16,16 @@ let farmAmt = document.getElementById("farm-amount");
 let farmCPS = farm * 8;
 let farmCost = 1200;
 let farmCostAmount = document.getElementById("farm-cost");
+let mine = 0;
+let mineAmt = document.getElementById("mine-amount");
+let mineCPS = mine * 64;
+let mineCost = 10000;
+let mineCostAmount = document.getElementById("mine-cost");
+let factory = 0;
+let factoryAmt = document.getElementById("factory-amount");
+let factoryCPS = factory * 512;
+let factoryCost = 130000;
+let factoryCostAmount = document.getElementById("factory-cost");
 let pointerUPG = 0;
 let pointerUPGAmt = document.getElementById("pointerUPG-amount");
 let pointerUPGCost = 100;
@@ -31,6 +41,10 @@ let grandmaUPGAmt = document.getElementById("grandmaUPG-amount");
 let grandmaUPGCost = 500;
 let grandmaUPGCostAmount = document.getElementById("grandmaUPG-cost");
 let grandmaMult = 1;
+let farmUPG = 0;
+let farmUPGAmt = document.getElementById("farmUPG-amount");
+let farmUPGCost = 2500;
+let farmUPGCostAmount = document.getElementById("farmUPG-cost");
 let farmMult = 1;
 let cps = 0;
 let jar = document.getElementById("jar");
@@ -42,16 +56,27 @@ let jar3 = document.getElementById("jar3");
 // loop thing
 
 document.getElementById("btn").addEventListener("click", btnClicked);
+
 document
   .getElementById("cursor-buy")
   .addEventListener("click", cursorBuyClicked);
+
 document
   .getElementById("grandma-buy")
   .addEventListener("click", grandmaBuyClicked);
+
 document.getElementById("farm-buy").addEventListener("click", farmBuyClicked);
+
+document.getElementById("mine-buy").addEventListener("click", mineBuyClicked);
+
+document
+  .getElementById("factory-buy")
+  .addEventListener("click", factoryBuyClicked);
+
 document
   .getElementById("pointer-upgrade")
   .addEventListener("click", pointerUPGClicked);
+
 document
   .getElementById("cursor-upgrade")
   .addEventListener("click", cursorUPGClicked);
@@ -60,6 +85,10 @@ document
   .getElementById("grandma-upgrade")
   .addEventListener("click", grandmaUPGClicked);
 
+document
+  .getElementById("farm-upgrade")
+  .addEventListener("click", farmUPGClicked);
+
 //Updating and timing
 
 function update() {
@@ -67,7 +96,12 @@ function update() {
   jar2.innerHTML = numCookie.toFixed(1);
   jar3.innerHTML = numCookie.toFixed(1);
   document.title = numCookie.toFixed(1) + " Cookies";
-  cps = cursorCPS * cursorMult + grandmaCPS * grandmaMult + farmCPS * farmMult;
+  cps =
+    cursorCPS * cursorMult +
+    grandmaCPS * grandmaMult +
+    farmCPS * farmMult +
+    mineCPS +
+    factoryCPS;
   document.getElementById("total-CPS").innerHTML =
     "Total Cookies Per Second = " + cps.toFixed(1);
 }
@@ -76,6 +110,8 @@ function timer() {
   numCookie = numCookie + cursorCPS * cursorMult;
   numCookie = numCookie + grandmaCPS * grandmaMult;
   numCookie = numCookie + farmCPS * farmMult;
+  numCookie = numCookie + mineCPS;
+  numCookie = numCookie + factoryCPS;
   update();
 }
 
@@ -138,6 +174,40 @@ function farmBuyClicked() {
   }
 }
 
+//Mine Buying
+function mineBuyClicked() {
+  if (numCookie >= mineCost) {
+    mine += 1;
+    mineAmt.innerHTML = "Mines " + mine;
+    numCookie -= mineCost;
+    mineCost *= 1.3;
+    mineCost = Math.round(mineCost);
+    mineCostAmount.innerHTML = mineCost;
+    mineCPS = mine * 64;
+    update();
+  } else {
+    console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
+  }
+}
+
+//Factory Buying
+function factoryBuyClicked() {
+  if (numCookie >= factoryCost) {
+    factory += 1;
+    factoryAmt.innerHTML = "Factories " + factory;
+    numCookie -= factoryCost;
+    factoryCost *= 1.3;
+    factoryCost = Math.round(factoryCost);
+    factoryCostAmount.innerHTML = factoryCost;
+    factoryCPS = factory * 512;
+    update();
+  } else {
+    console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
+  }
+}
+
 //Upgrades
 
 //Pointer upgrade
@@ -150,6 +220,7 @@ function pointerUPGClicked() {
     pointerUPGCost = Math.round(pointerUPGCost);
     pointerUPGCostAmount.innerHTML = pointerUPGCost;
     pointerMult *= 2;
+    update();
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
@@ -166,6 +237,7 @@ function cursorUPGClicked() {
     cursorUPGCost = Math.round(cursorUPGCost);
     cursorUPGCostAmount.innerHTML = cursorUPGCost;
     cursorMult *= 2;
+    update();
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
@@ -182,6 +254,24 @@ function grandmaUPGClicked() {
     grandmaUPGCost = Math.round(grandmaUPGCost);
     grandmaUPGCostAmount.innerHTML = grandmaUPGCost;
     grandmaMult *= 2;
+    update();
+  } else {
+    console.log(`You Don't Have Enough Cookies in The Cookie jar`);
+    alert(`You Don't Have Enough Cookies in The Cookie jar`);
+  }
+}
+
+//Farm upgrade
+function farmUPGClicked() {
+  if (numCookie >= farmUPGCost) {
+    farmUPG += 1;
+    farmUPGAmt.innerHTML = "Farm upgrades " + farmUPG;
+    numCookie -= farmUPGCost;
+    farmUPGCost *= 5;
+    farmUPGCost = Math.round(farmUPGCost);
+    farmUPGCostAmount.innerHTML = farmUPGCost;
+    farmMult *= 2;
+    update();
   } else {
     console.log(`You Don't Have Enough Cookies in The Cookie jar`);
     alert(`You Don't Have Enough Cookies in The Cookie jar`);
